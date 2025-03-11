@@ -31,12 +31,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Storage::extend('dropbox', function ($app, $config) {
             $client = new DropboxClient(
-                $config['authorization_token']
+                $config['token']
             );
 
             /** @var FilesystemAdapter $adapter */
             $adapter = new DropboxAdapter($client);
-            return new Filesystem($adapter, ['case_sensitive' => false]);
+            return new Filesystem($adapter);
         });
 
         Storage::extend('gcs', function ($app, $config) {

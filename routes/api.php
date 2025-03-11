@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\GoogleCloudStorageController;
 
 // Dropbox Routes
 Route::prefix('dropbox')->group(function () {
+    Route::get('test', [DropboxController::class, 'test']);
     Route::get('list', [DropboxController::class, 'listContents']);
     Route::post('copy', [DropboxController::class, 'copy']);
     Route::post('upload', [DropboxController::class, 'upload']);
